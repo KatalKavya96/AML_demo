@@ -1,0 +1,11 @@
+data/*
+!data/.gitkeep
+results/preds/*.npz
+__pycache__/
+*.pyc
+.venv/
+.ipynb_checkpoints/
+.pytest_cache/
+.ruff_cache/
+*.egg-info/
+.DS_Store

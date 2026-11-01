@@ -1,0 +1,23 @@
+paths:
+  speed_h5: data/raw/metr-la.h5
+  sensor_ids: data/raw/sensor_graph/graph_sensor_ids.txt
+  distances: data/raw/sensor_graph/distances_la_2012.csv
+  locations: data/raw/sensor_graph/graph_sensor_locations.csv
+  dcrnn_adj: data/raw/sensor_graph/adj_mx.pkl
+
+series:
+  freq_minutes: 5
+  null_value: 0.0          # 0 mph = missing / sensor outage
+
+windows:
+  history: 12              # t-11 .. t
+  horizon: 12              # t+1 .. t+12
+  report_horizons: [3, 6, 12]
+
+split:                     # DCRNN convention, by sample window
+  train_frac: 0.7
+  test_frac: 0.2
+  # validation is the remainder, halved in time into val_tune / val_stack
+
+graph:
+  normalized_k: 0.1        # Gaussian-kernel threshold (kappa)
